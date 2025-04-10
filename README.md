@@ -13,6 +13,9 @@ Ah, e se surgir qualquer dúvida, pode me chamar! É só abrir uma issue aqui no
   Perfeito pra quem está começando do zero e quer entender como funciona o desenvolvimento web.
 
 ### 🐍 Python
+Python é uma das melhores linguagens pra quem está começando. Ela tem uma sintaxe simples e é super versátil: dá pra usar no backend, em ciência de dados, automação, inteligência artificial e muito mais.  
+Além disso, tem uma comunidade enorme, com muitos tutoriais e cursos — o que ajuda demais na hora de aprender.
+
 - Curso "Programação em Python do Básico ao Avançado" na [Udemy](https://www.udemy.com/course/programacao-python-do-basico-ao-avancado)  
   Curso pago, mas frequentemente entra em promoção (vale ficar de olho!).
 
