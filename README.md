@@ -84,7 +84,6 @@ Você pode tirar dúvidas, fazer networking, trocar ideias e até conseguir opor
 
 Algumas opções:
 - Discord da [Rocketseat](https://discord.gg/rocketseat)
-- [Comunidade do BrasilJS](https://comunidade.brasiljs.org/)
 - Reddit: [r/brdev](https://www.reddit.com/r/brdev/)
 
 Se tiver vergonha de perguntar, entra, observa as conversas e vai se ambientando. Com o tempo, você vai se sentir mais confortável pra participar.
