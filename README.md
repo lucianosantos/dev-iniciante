@@ -20,7 +20,7 @@ Você aprende o básico de HTML, CSS e JavaScript, com foco em **colocar a mão 
 
 ---
 
-### 🐍 Python com Didática Tech (GRÁTIS)  
+### 🐍 Python com Didática Tech
 🔗 [https://didatica.tech/curso-de-python-online-para-iniciantes/](https://didatica.tech/curso-de-python-online-para-iniciantes/)
 
 Curso **completo, gratuito e em português**, com vídeo-aulas que vão desde o básico até uma introdução a frameworks como Flask e Django.
