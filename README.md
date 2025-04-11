@@ -74,6 +74,20 @@ Mesmo que você comece com cursos em português, **vai chegar uma hora em que sa
 💬 Algumas opções gratuitas pra começar:
 - [Busuu](https://www.busuu.com/)
 - [Duolingo](https://www.duolingo.com/)
+- 
+---
+
+## 👥 Comunidade
+
+Entrar numa comunidade pode fazer toda a diferença!  
+Você pode tirar dúvidas, fazer networking, trocar ideias e até conseguir oportunidades.
+
+Algumas opções:
+- Discord da [Rocketseat](https://discord.gg/rocketseat)
+- [Comunidade do BrasilJS](https://comunidade.brasiljs.org/)
+- Reddit: [r/brdev](https://www.reddit.com/r/brdev/)
+
+Se tiver vergonha de perguntar, entra, observa as conversas e vai se ambientando. Com o tempo, você vai se sentir mais confortável pra participar.
 
 ---
 
