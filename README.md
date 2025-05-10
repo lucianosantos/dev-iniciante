@@ -34,7 +34,8 @@ Curso **completo, gratuito e em português**, com vídeo-aulas que vão desde o 
 ---
 
 ### 🌐 Introdução à Programação com a IBM (Coursera)  
-🔗 [https://www.coursera.org/learn/ibm-programming-introduction](https://www.coursera.org/learn/ibm-programming-introduction)
+🔗 [https://www.coursera.org/professional-certificates/ibm-full-stack-cloud-developer](https://www.coursera.org/professional-certificates/ibm-full-stack-cloud-developer)
+Esse link as vezes muda, se estiver fora do ar, procura pelos cursos da ibm no coursera.
 
 Esse é um dos cursos **mais completos dessa lista**. Foi criado pela IBM e está disponível gratuitamente na Coursera, com legendas em português.
 
