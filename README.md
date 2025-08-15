@@ -1,104 +1,90 @@
 # 💻 Guia para Devs Iniciantes
 
-Fala dev! 👋 
-Se você está começando na área de tecnologia e não sabe por onde ir, esse guia é pra você.  
-Sou dev sênior e reuni aqui alguns links e dicas que eu recomendo pra quem quer **entrar na área de programação**.
+Fala, dev! 👋  
+Se você está começando na área e não sabe por onde começar, este guia é pra você.  
+Sou dev sênior e reuni materiais **gratuitos**, em **português**, para dar os primeiros passos com foco e prática.
 
 ---
 
-## 🚀 Por onde começar
-
-Aqui vão **alguns caminhos gratuitos e bem estruturados** pra quem está começando agora:
-
----
-
-### 🎨 Front-end com Rocketseat – Discover  
-🔗 [https://www.rocketseat.com.br/discover](https://www.rocketseat.com.br/discover)
-
-Curso gratuito, moderno e em português, ideal pra começar com o **front-end**.  
-Você aprende o básico de HTML, CSS e JavaScript, com foco em **colocar a mão na massa** e fazer projetos simples desde o início.
+## 🎯 Mercado de Trabalho (motivação & direção)
+**Playlist — Entrando no Mercado de TI em 2025:** visão realista do cenário, fundamentos e próximos passos.  
+**Por que ver:** ajuda a definir expectativas, evitar modinhas e escolher uma trilha coerente.  
+🔗 https://www.youtube.com/playlist?list=PLHz_AreHm4dl2W--y71fvviSANuFVTkHG
 
 ---
 
-### 🐍 Python com Didática Tech
-🔗 [https://didatica.tech/curso-de-python-online-para-iniciantes/](https://didatica.tech/curso-de-python-online-para-iniciantes/)
-
-Curso **completo, gratuito e em português**, com vídeo-aulas que vão desde o básico até uma introdução a frameworks como Flask e Django.
-
-💡 **Por que Python é uma boa linguagem pra começar?**  
-- Sintaxe fácil e direta  
-- Usada em back-end, ciência de dados, automações e IA  
-- Comunidade gigante e muito conteúdo gratuito  
-- Forte presença no mercado de trabalho
+## 🧠 Fundamentos — Algoritmo
+**Curso de Algoritmo (40h) — Curso em Vídeo:** lógica e estruturas de controle, base para qualquer linguagem.  
+**Por que ver:** pensar bem **antes** do código evita “copiar e colar” sem entender.  
+🔗 https://www.cursoemvideo.com/curso/curso-de-algoritmo/
 
 ---
 
-### 🌐 Introdução à Programação com a IBM (Coursera)  
-🔗 [https://www.coursera.org/professional-certificates/ibm-full-stack-cloud-developer](https://www.coursera.org/professional-certificates/ibm-full-stack-cloud-developer)
-Esse link as vezes muda, se estiver fora do ar, procura pelos cursos da ibm no coursera.
-
-Esse é um dos cursos **mais completos dessa lista**. Foi criado pela IBM e está disponível gratuitamente na Coursera, com legendas em português.
-
-Você vai aprender:
-- **Lógica de programação**, conceitos fundamentais pra qualquer linguagem  
-- **Python**, uma das linguagens mais versáteis e usadas no mercado  
-- Uma **visão geral das principais áreas da tecnologia**, como:
-  - Desenvolvimento Web  
-  - Mobile  
-  - Ciência de Dados  
-  - Inteligência Artificial  
-  - DevOps e Cloud Computing  
-
-Também traz orientações sobre **carreira na área de tecnologia**, além de contar com quizzes, vídeos e projetos práticos.
-
-💡 É uma ótima opção pra quem quer **entender o universo da programação como um todo**, antes de escolher uma área pra focar.
+## 🎨 Front-end com Rocketseat – Discover
+Curso gratuito e moderno para iniciar no **front-end**: HTML, CSS e JavaScript com foco em prática e pequenos projetos.  
+**Por que ver:** dá base visual e de estrutura de páginas, útil mesmo pra quem seguirá back-end.  
+🔗 https://www.rocketseat.com.br/discover
 
 ---
 
-### 🧭 Roadmap do Desenvolvedor  
-🔗 [https://roadmap.sh/](https://roadmap.sh/)
+## 🐍 Python 3 (Curso em Vídeo — Gustavo Guanabara)
+**Por que Python?** Linguagem simples, comunidade enorme, muito utilizada no mercado e usada em back-end, dados, automação e IA.
 
-Site em inglês com **mapas visuais de conhecimento**.  
-É ideal pra quem quer entender o que precisa aprender em áreas como front-end, back-end, DevOps, etc.  
-💡 Dica: Comece a usar quando já estiver um pouco mais confortável com os fundamentos.
+**Trilha oficial do Guanabara:**
+- **Mundo 1 (40h):** fundamentos, primeiros scripts, tipos e operações.  
+  🔗 https://www.cursoemvideo.com/curso/python-3-mundo-1/
+- **Mundo 2 (40h):** estruturas de controle e repetição (if/elif, for/while).  
+  🔗 https://www.cursoemvideo.com/curso/python-3-mundo-2/
+- **Mundo 3 (40h):** estruturas de dados, funções/módulos, arquivos e exceções.  
+  🔗 https://www.cursoemvideo.com/curso/python-3-mundo-3/
 
 ---
 
 ## 🌍 Sobre o inglês
 
-Mesmo que você comece com cursos em português, **vai chegar uma hora em que saber inglês vai fazer toda a diferença**.
+Mesmo começando em português, **inglês destrava documentação, fóruns e oportunidades** (inclusive remoto e exterior).
 
-- A maioria da documentação e fóruns são em inglês  
-- As melhores oportunidades no exterior e remoto exigem o idioma  
-- Vai facilitar MUITO aprender tecnologias novas
+**Inglês para Iniciantes — Curso em Vídeo (Guanabara):**
+- **Módulo 1 (20h):** vocabulário e comunicação básica.  
+  🔗 https://www.cursoemvideo.com/curso/curso-de-ingles-para-iniciantes-modulo-1-beginners-gratis-e-completo/
+- **Módulo 2 (20h):** nível A1, situações do dia a dia, gramática essencial.  
+  🔗 https://www.cursoemvideo.com/curso/curso-de-ingles-para-iniciantes-modulo-02-beginners-completo/
+- **Módulo 3 (20h):** ampliação de vocabulário e fluência (certificado opcional).  
+  🔗 https://www.cursoemvideo.com/curso/curso-de-ingles-para-iniciantes-modulo-03-beginners-completo/
+- **Módulo 4 (20h):** be going to, Simple Past, used to; escrita de convites e reviews.  
+  🔗 https://www.cursoemvideo.com/curso/curso-de-ingles-para-iniciantes-modulo-04-beginners-completo-20-horas/
 
-💬 Algumas opções gratuitas pra começar:
-- [Busuu](https://www.busuu.com/)
-- [Duolingo](https://www.duolingo.com/)
-- 
 ---
 
 ## 👥 Comunidade
 
-Entrar numa comunidade pode fazer toda a diferença!  
-Você pode tirar dúvidas, fazer networking, trocar ideias e até conseguir oportunidades.
+Estar em uma comunidade acelera o aprendizado: dúvidas, networking e oportunidades.
 
-Algumas opções:
-- Discord da [Rocketseat](https://discord.gg/rocketseat)
-- Reddit: [r/brdev](https://www.reddit.com/r/brdev/)
+- Discord da **Rocketseat**: https://discord.gg/rocketseat  
+- Reddit **r/brdev**: https://www.reddit.com/r/brdev/
 
-Se tiver vergonha de perguntar, entra, observa as conversas e vai se ambientando. Com o tempo, você vai se sentir mais confortável pra participar.
+Se estiver tímido, entre e observe. Com o tempo, participe com perguntas simples e comentários.
 
 ---
 
 ## 📄 Dicas pra montar um bom currículo
-
-🔗 [Tutorial 100% atualizado de como arrumar um emprego como dev – Reddit](https://www.reddit.com/r/brdev/comments/1jiti78/tutorial_100_atualizado_de_como_arrumar_um_emprego/)
-
-Esse post é muito bom e direto ao ponto.  
-Traz dicas práticas sobre o que colocar no currículo, como montar o LinkedIn, GitHub e como se preparar para entrevistas.
+Esse post é muito bom e direto ao ponto. Traz dicas práticas sobre o que colocar no currículo, como montar o LinkedIn, GitHub e como se preparar para entrevistas.  
+🔗 https://www.reddit.com/r/brdev/comments/1jiti78/tutorial_100_atualizado_de_como_arrumar_um_emprego/
 
 ---
 
-Se você leu até aqui, é porque está comprometido. E isso já te coloca à frente da maioria.  
-Se tiver dúvidas ou quiser trocar ideia, me chama no [Instagram](https://www.instagram.com/lucianosantosp/). Boa jornada! 🚀
+## 🧭 Roadmap do Desenvolvedor (inglês)
+Aqui já começa a pesar o inglês. Tem muito material bom em inglês. Aqui temos mapas visuais do que aprender em front-end, back-end, DevOps e mais. Use quando já estiver confortável com os fundamentos.  
+🔗 https://roadmap.sh/
+
+---
+
+## 🌐 Trilha complementar — Fundamentos de CS (opcional)
+**CC50 (CS50 em português, Fundação Estudar):** ciência da computação com algoritmos, C, Python, web e IA.  
+Use **depois** de ganhar ritmo em Python/Web (ou em paralelo, 1–2 aulas/semana).  
+🔗 https://www.estudarfora.org.br/cc50-v2/
+
+---
+
+Se você leu até aqui, está comprometido — e isso já te coloca à frente.  
+Dúvidas ou ideias? Me chama no **Instagram**: https://www.instagram.com/lucianosantosp/ — boa jornada! 🚀
