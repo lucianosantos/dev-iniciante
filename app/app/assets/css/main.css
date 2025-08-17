@@ -1,0 +1,140 @@
+@import 'tailwindcss';
+@import '@nuxt/ui';
+
+/* ===== Design tokens (dark-first) ===== */
+:root {
+    --bg: #0b0b0c;
+    --surface: #0f1115;
+    --surface-2: #141821;
+    --text: #e7e9ee;
+    --muted: #9aa3b2;
+    --primary: #0f766e;
+    --primary-fore: #eafffb;
+    --border: #1f2530;
+    --ring: #22d3ee;
+    --radius: 16px;
+    --chev: #93c5fd;
+}
+
+/* Light mode overrides */
+.light {
+    --bg: #fafafa;
+    --surface: #ffffff;
+    --surface-2: #f8fafc;
+    --text: #1e293b;
+    --muted: #64748b;
+    --primary: #0f766e;
+    --primary-fore: #ffffff;
+    --border: #e2e8f0;
+    --ring: #0ea5e9;
+    --chev: #3b82f6;
+}
+
+/* Global styles */
+body {
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Ubuntu,
+        'Helvetica Neue', Arial;
+    background: linear-gradient(180deg, var(--bg), #0c0d12 40%, #0b0f18);
+    color: var(--text);
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.light body {
+    background: linear-gradient(180deg, var(--bg), #f1f5f9 40%, #e2e8f0);
+}
+
+/* Chevron bullets (blue subtle) */
+.bullets,
+.prose ul:not(.checklist),
+ul.checklist {
+    list-style: none;
+    padding-left: 0;
+}
+
+.bullets li,
+.prose ul:not(.checklist) li,
+.checklist li {
+    position: relative;
+    padding-left: 18px;
+    margin: 0.35rem 0;
+}
+
+.bullets li::before,
+.prose ul:not(.checklist) li::before,
+.checklist li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    top: 0.2rem;
+    color: var(--chev);
+    font-weight: 700;
+    font-size: 14px;
+}
+
+/* Inline chevron bullet for components */
+.chevron-bullet::before {
+    content: '›';
+    color: var(--chev);
+    font-weight: 700;
+    font-size: 14px;
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+}
+
+/* Focus states for accessibility */
+*:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+}
+
+/* Button styles to match mock.html */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.15s ease;
+    cursor: pointer;
+    border: none;
+    padding: 10px 16px;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: var(--primary-fore);
+}
+
+.btn-primary:hover {
+    background: color-mix(in srgb, var(--primary) 85%, white);
+}
+
+.btn-ghost {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border);
+}
+
+.btn-ghost:hover {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+@theme static {
+    --font-sans: 'Public Sans', sans-serif;
+
+    --color-green-50: #effdf5;
+    --color-green-100: #d9fbe8;
+    --color-green-200: #b3f5d1;
+    --color-green-300: #75edae;
+    --color-green-400: #00dc82;
+    --color-green-500: #00c16a;
+    --color-green-600: #00a155;
+    --color-green-700: #007f45;
+    --color-green-800: #016538;
+    --color-green-900: #0a5331;
+    --color-green-950: #052e16;
+}

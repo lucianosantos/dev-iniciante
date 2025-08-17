@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Roadmap BR — Proposta Visual (MVP)</title>
+        <style>
+            /* ===== Design tokens (dark-first) ===== */
+            :root {
+                --bg: #0b0b0c;
+                --surface: #0f1115;
+                --surface-2: #141821;
+                --text: #e7e9ee;
+                --muted: #9aa3b2;
+                --primary: #0f766e;
+                --primary-fore: #eafffb;
+                --border: #1f2530;
+                --ring: #22d3ee;
+                --radius: 16px;
+                --chev: #93c5fd;
+            }
+            * {
+                box-sizing: border-box;
+            }
+            body {
+                margin: 0;
+                font: 400 16px/1.55 system-ui, -apple-system, Segoe UI, Roboto,
+                    Ubuntu, 'Helvetica Neue', Arial;
+                color: var(--text);
+                background: linear-gradient(
+                    180deg,
+                    #0b0b0c,
+                    #0c0d12 40%,
+                    #0b0f18
+                );
+            }
+            h1,
+            h2,
+            h3 {
+                line-height: 1.2;
+                margin: 0 0 0.5rem 0;
+            }
+            h1 {
+                font-size: 28px;
+            }
+            h2 {
+                font-size: 22px;
+            }
+            h3 {
+                font-size: 18px;
+            }
+            a {
+                color: inherit;
+            }
+            .container {
+                max-width: 1040px;
+                margin: 0 auto;
+                padding: 24px;
+            }
+            .header {
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                padding: 16px 24px;
+                border-bottom: 1px solid var(--border);
+                background: rgba(20, 24, 33, 0.75);
+                backdrop-filter: blur(6px);
+                position: sticky;
+                top: 0;
+                z-index: 50;
+            }
+            .logo {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                font-weight: 700;
+            }
+            .logo-dot {
+                width: 12px;
+                height: 12px;
+                border-radius: 999px;
+                background: conic-gradient(
+                    from 180deg at 50% 50%,
+                    #0f766e,
+                    #4f46e5,
+                    #0f766e
+                );
+            }
+            .header-actions {
+                margin-left: auto;
+                display: flex;
+                gap: 10px;
+            }
+            .btn {
+                appearance: none;
+                border: none;
+                cursor: pointer;
+                padding: 10px 14px;
+                border-radius: 12px;
+                font-weight: 600;
+            }
+            .btn-primary {
+                background: var(--primary);
+                color: var(--primary-fore);
+            }
+            .btn-primary:hover {
+                filter: brightness(0.95);
+            }
+            .btn-ghost {
+                background: transparent;
+                color: var(--text);
+                border: 1px solid var(--border);
+            }
+            .btn-ghost:hover {
+                background: rgba(255, 255, 255, 0.04);
+            }
+
+            /* ===== Timeline (Página inicial) ===== */
+            /* Chevron bullets (azul sutil) */
+            .bullets,
+            .prose ul,
+            .checklist,
+            ul.small {
+                list-style: none;
+            }
+            .bullets li,
+            .prose ul li,
+            .checklist li,
+            .small ul li {
+                position: relative;
+                padding-left: 14px;
+                margin: 0.35rem 0;
+            }
+            .bullets li::before,
+            .prose ul li::before,
+            .checklist li::before,
+            .small ul li::before {
+                content: '›'; /* › — ângulo mais aberto que '>' */
+                position: absolute;
+                left: -12px;
+                top: 0.2rem;
+                color: var(--chev);
+                font-weight: 700;
+                font-size: 14px;
+            }
+
+            /* ===== Timeline (Página inicial) ===== */
+            .timeline {
+                position: relative;
+                padding-left: 28px;
+                display: grid;
+                gap: 18px;
+            }
+            .timeline::before {
+                content: '';
+                position: absolute;
+                left: 14px;
+                top: 0;
+                bottom: 0;
+                width: 2px;
+                background: linear-gradient(#203045, #1f2530);
+            }
+            .node {
+                position: relative;
+            }
+            .node-dot {
+                position: absolute;
+                left: -20px;
+                top: 20px;
+                width: 12px;
+                height: 12px;
+                border-radius: 999px;
+                background: transparent;
+                border: 2px solid var(--primary);
+                box-shadow: 0 0 0 2px rgba(15, 118, 110, 0.2);
+            }
+            .card {
+                background: linear-gradient(
+                    180deg,
+                    rgba(29, 34, 46, 0.75),
+                    rgba(18, 20, 28, 0.75)
+                );
+                border: 1px solid var(--border);
+                border-radius: var(--radius);
+                padding: 18px;
+                box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05),
+                    0 16px 28px -18px rgba(0, 0, 0, 0.35);
+            }
+            .card:hover {
+                box-shadow: 0 1px 1px rgba(0, 0, 0, 0.06),
+                    0 18px 34px -16px rgba(0, 0, 0, 0.45);
+            }
+            .card-head {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+            }
+            .num {
+                font-weight: 800;
+                color: var(--primary);
+            }
+            .status {
+                margin-left: auto;
+                font-size: 12px;
+                padding: 4px 8px;
+                border-radius: 999px;
+                border: 1px solid #1b2a29;
+                background: rgba(15, 118, 110, 0.12);
+                color: #7ed6cc;
+            }
+            .muted {
+                color: var(--muted);
+            }
+            .bullets {
+                margin: 0.35rem 0 0 0;
+                padding-left: 18px;
+            }
+
+            /* ===== Drawer (estado: aberto) ===== */
+            .overlay {
+                position: fixed;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.55);
+                z-index: 80;
+            }
+            .drawer {
+                position: fixed;
+                inset: 0 auto 0 auto;
+                right: 0;
+                width: 420px;
+                max-width: 100%;
+                background: linear-gradient(180deg, #0f1115, #0a0c12);
+                border-left: 1px solid var(--border);
+                border-top-left-radius: 16px;
+                border-bottom-left-radius: 16px;
+                z-index: 90;
+                padding: 18px;
+            }
+            .drawer header {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+            .drawer h2 {
+                font-size: 18px;
+            }
+            .tag {
+                font-size: 12px;
+                padding: 4px 8px;
+                border-radius: 999px;
+                border: 1px solid #2a2f3a;
+                background: #111421;
+                color: #cbd5e1;
+            }
+            .prose {
+                color: var(--text);
+            }
+            .prose h3 {
+                margin-top: 14px;
+                margin-bottom: 6px;
+                font-size: 14px;
+                letter-spacing: 0.2px;
+                color: #dbeafe;
+            }
+            .prose ul {
+                margin: 0;
+                padding-left: 18px;
+            }
+
+            /* ===== Página do Bloco ===== */
+            .hero {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                margin-bottom: 16px;
+            }
+            .badge {
+                font-size: 12px;
+                padding: 4px 8px;
+                border-radius: 999px;
+                border: 1px solid #334155;
+                background: #0b1220;
+                color: #cbd5e1;
+            }
+            .tabs {
+                display: flex;
+                gap: 8px;
+                margin: 12px 0;
+            }
+            .tab {
+                padding: 8px 12px;
+                border-radius: 10px;
+                border: 1px solid var(--border);
+                background: #111522;
+            }
+            .grid {
+                display: grid;
+                grid-template-columns: 1.3fr 0.7fr;
+                gap: 18px;
+            }
+            .sidebar {
+                background: linear-gradient(180deg, #121722, #0f141d);
+                border: 1px solid var(--border);
+                border-radius: var(--radius);
+                padding: 14px;
+            }
+            .checklist li {
+                margin: 0.35rem 0;
+            }
+            .sep {
+                height: 1px;
+                background: var(--border);
+                margin: 14px 0;
+            }
+
+            /* Helpers */
+            .section {
+                padding: 24px;
+                margin: 18px 0;
+                background: rgba(15, 18, 28, 0.5);
+                border: 1px solid var(--border);
+                border-radius: var(--radius);
+            }
+            .small {
+                font-size: 13px;
+            }
+        </style>
+    </head>
+    <body>
+        <header class="header">
+            <div class="logo"><span class="logo-dot"></span> Roadmap BR</div>
+            <nav class="small muted">Trilha Fullstack</nav>
+            <div class="header-actions">
+                <button class="btn btn-ghost">Theme</button>
+                <button class="btn btn-primary">Entrar com GitHub</button>
+            </div>
+        </header>
+
+        <main class="container">
+            <!-- =================== Página inicial: Timeline =================== -->
+            <section class="section">
+                <h1>Trilha Fullstack</h1>
+                <p class="muted small">
+                    8 blocos • ~40h por bloco • IA como tutor • entregáveis
+                    verificáveis
+                </p>
+                <div class="timeline" style="margin-top: 18px">
+                    <!-- Nó 01 -->
+                    <div class="node">
+                        <span class="node-dot"></span>
+                        <div class="card">
+                            <div class="card-head">
+                                <span class="num">01</span>
+                                <h3>Git + IA (modo tutor)</h3>
+                                <span class="status">A fazer</span>
+                            </div>
+                            <ul class="bullets muted small">
+                                <li>Repo, branch e PR com template</li>
+                                <li>Prompts de diagnóstico e review</li>
+                                <li>README, changelog e diário de erros</li>
+                            </ul>
+                            <div
+                                style="
+                                    margin-top: 10px;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <button class="btn btn-primary">
+                                    Ver bloco
+                                </button>
+                                <button class="btn btn-ghost">Resumo</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Nó 02 -->
+                    <div class="node">
+                        <span
+                            class="node-dot"
+                            style="background: var(--primary)"
+                        ></span>
+                        <div class="card">
+                            <div class="card-head">
+                                <span class="num">02</span>
+                                <h3>Python (base + testes)</h3>
+                                <span
+                                    class="status"
+                                    style="
+                                        background: rgba(22, 163, 74, 0.12);
+                                        border-color: #12301c;
+                                        color: #9be6b3;
+                                    "
+                                    >Em progresso</span
+                                >
+                            </div>
+                            <ul class="bullets muted small">
+                                <li>Coleções, exceções, módulos</li>
+                                <li>pytest (inclui casos de erro)</li>
+                            </ul>
+                            <div
+                                style="
+                                    margin-top: 10px;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <button class="btn btn-primary">
+                                    Ver bloco
+                                </button>
+                                <button class="btn btn-ghost">Resumo</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Nó 03 -->
+                    <div class="node">
+                        <span class="node-dot"></span>
+                        <div class="card">
+                            <div class="card-head">
+                                <span class="num">03</span>
+                                <h3>Web básica: HTML5 + CSS3</h3>
+                                <span class="status">A fazer</span>
+                            </div>
+                            <ul class="bullets muted small">
+                                <li>Semântica, responsivo, acessibilidade</li>
+                                <li>Mini-site estático com dados mock</li>
+                            </ul>
+                            <div
+                                style="
+                                    margin-top: 10px;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <button class="btn btn-primary">
+                                    Ver bloco
+                                </button>
+                                <button class="btn btn-ghost">Resumo</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ... nós 04–08 abreviados para a maquete visual ... -->
+                    <div class="node">
+                        <span class="node-dot"></span>
+                        <div class="card">
+                            <div class="card-head">
+                                <span class="num">04</span>
+                                <h3>API: HTTP, status, docs e /status</h3>
+                                <span class="status">A fazer</span>
+                            </div>
+                            <ul class="bullets muted small">
+                                <li>CRUD + tratamento 400/401/404/422/500</li>
+                                <li>OpenAPI viva</li>
+                            </ul>
+                            <div
+                                style="
+                                    margin-top: 10px;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <button class="btn btn-primary">
+                                    Ver bloco</button
+                                ><button class="btn btn-ghost">Resumo</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="node">
+                        <span class="node-dot"></span>
+                        <div class="card">
+                            <div class="card-head">
+                                <span class="num">05</span>
+                                <h3>Banco: SQLite → PostgreSQL</h3>
+                                <span class="status">A fazer</span>
+                            </div>
+                            <ul class="bullets muted small">
+                                <li>ORM + migrations + seed</li>
+                                <li>GUI: pgAdmin/DBeaver</li>
+                            </ul>
+                            <div
+                                style="
+                                    margin-top: 10px;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <button class="btn btn-primary">
+                                    Ver bloco</button
+                                ><button class="btn btn-ghost">Resumo</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="node">
+                        <span class="node-dot"></span>
+                        <div class="card">
+                            <div class="card-head">
+                                <span class="num">06</span>
+                                <h3>Auth & Segurança (JWT)</h3>
+                                <span class="status">A fazer</span>
+                            </div>
+                            <ul class="bullets muted small">
+                                <li>Hash, OAuth2 password, JWT</li>
+                                <li>CORS/headers, rate-limit básico</li>
+                            </ul>
+                            <div
+                                style="
+                                    margin-top: 10px;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <button class="btn btn-primary">
+                                    Ver bloco</button
+                                ><button class="btn btn-ghost">Resumo</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="node">
+                        <span class="node-dot"></span>
+                        <div class="card">
+                            <div class="card-head">
+                                <span class="num">07</span>
+                                <h3>Vue 3 + Vite (consumindo a API)</h3>
+                                <span class="status">A fazer</span>
+                            </div>
+                            <ul class="bullets muted small">
+                                <li>Login/guard, erros/loading/empty</li>
+                                <li>Opcional: Tailwind</li>
+                            </ul>
+                            <div
+                                style="
+                                    margin-top: 10px;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <button class="btn btn-primary">
+                                    Ver bloco</button
+                                ><button class="btn btn-ghost">Resumo</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="node">
+                        <span class="node-dot"></span>
+                        <div class="card">
+                            <div class="card-head">
+                                <span class="num">08</span>
+                                <h3>Deploy: Render + Vercel</h3>
+                                <span class="status">A fazer</span>
+                            </div>
+                            <ul class="bullets muted small">
+                                <li>Env, /status, smoke test, rollback</li>
+                            </ul>
+                            <div
+                                style="
+                                    margin-top: 10px;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <button class="btn btn-primary">
+                                    Ver bloco</button
+                                ><button class="btn btn-ghost">Resumo</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- =================== Estado 2: Drawer aberto (maquete) =================== -->
+            <div class="overlay" aria-hidden="true"></div>
+            <aside
+                class="drawer"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="drawer-title"
+            >
+                <header>
+                    <div
+                        class="logo-dot"
+                        style="width: 10px; height: 10px"
+                    ></div>
+                    <h2 id="drawer-title">
+                        Bloco 4 — API: HTTP, status, docs e /status
+                    </h2>
+                    <span class="tag" style="margin-left: auto">Resumo</span>
+                </header>
+                <article class="prose small">
+                    <h3>Você vai aprender</h3>
+                    <p>
+                        Rotas, validação,
+                        <strong>status codes</strong>
+                        (200/201/400/401/404/422/500), documentação viva com
+                        OpenAPI e uma rota pública <code>/status</code>.
+                    </p>
+                    <h3>Essenciais (Core)</h3>
+                    <ul>
+                        <li>CRUD com FastAPI e respostas padronizadas</li>
+                        <li>Tratamento de 4xx/5xx e mensagens de erro úteis</li>
+                    </ul>
+                    <h3>Projeto/Entregável</h3>
+                    <ul>
+                        <li>
+                            Implementar <code>/status</code> pública (usada no
+                            deploy e smoke test)
+                        </li>
+                        <li>Doc OpenAPI disponível e linkada no README</li>
+                    </ul>
+                    <h3>Opcional</h3>
+                    <ul>
+                        <li>
+                            Responder erros com códigos e corpos consistentes
+                        </li>
+                    </ul>
+                    <div style="margin-top: 12px; display: flex; gap: 8px">
+                        <button class="btn btn-primary">
+                            Ver página do bloco
+                        </button>
+                        <button class="btn btn-ghost">Fechar</button>
+                    </div>
+                </article>
+            </aside>
+
+            <!-- =================== Estado 3: Página do Bloco =================== -->
+            <section class="section" style="margin-top: 42px">
+                <div class="hero">
+                    <span class="badge">Bloco 4</span>
+                    <h2>API com FastAPI — HTTP, status, docs e /status</h2>
+                    <span class="badge">~40h</span>
+                </div>
+                <div class="tabs">
+                    <div class="tab">Essenciais</div>
+                    <div class="tab">Projeto/Entregável</div>
+                    <div class="tab">Opcional</div>
+                </div>
+                <div class="grid">
+                    <article class="card" style="min-height: 260px">
+                        <h3>Overview</h3>
+                        <p class="muted">
+                            Neste bloco você expõe um CRUD com validação,
+                            retorna códigos de status corretos e documenta tudo
+                            com OpenAPI. A rota pública
+                            <code>/status</code> será usada no bloco de deploy.
+                        </p>
+                        <div class="sep"></div>
+                        <h3>Essenciais (Core)</h3>
+                        <ul class="small">
+                            <li>
+                                Rotas REST (200/201/204/400/401/404/422/500)
+                            </li>
+                            <li>Validação Pydantic e mensagens de erro</li>
+                            <li>Docs vivas (Swagger/Redoc)</li>
+                        </ul>
+                        <div class="sep"></div>
+                        <h3>Projeto/Entregável</h3>
+                        <ul class="small">
+                            <li>
+                                Implementar <code>/status</code> + linkar docs
+                                no README
+                            </li>
+                            <li>Teste mínimo de rota de erro (ex.: 422)</li>
+                        </ul>
+                    </article>
+                    <aside class="sidebar">
+                        <h3>Checklist</h3>
+                        <ul class="checklist small">
+                            <li>[ ] CRUD responde 200/201/204</li>
+                            <li>[ ] Erros 400/401/404/422/500 padronizados</li>
+                            <li>[ ] <code>/status</code> pública</li>
+                            <li>[ ] OpenAPI acessível</li>
+                        </ul>
+                        <div class="sep"></div>
+                        <h3>Referências</h3>
+                        <ul class="small">
+                            <li>Doc FastAPI — status codes</li>
+                            <li>HTTP semântica — MDN</li>
+                        </ul>
+                    </aside>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>

@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Bloco 01 — Git + IA (modo tutor)</title>
+        <style>
+            :root {
+                --bg: #0b0b0c;
+                --surface: #0f1115;
+                --surface-2: #141821;
+                --text: #e7e9ee;
+                --muted: #9aa3b2;
+                --primary: #0f766e;
+                --primary-fore: #eafffb;
+                --border: #1f2530;
+                --ring: #22d3ee;
+                --chev: #93c5fd;
+                --radius: 16px;
+            }
+            * {
+                box-sizing: border-box;
+            }
+            body {
+                margin: 0;
+                font: 400 16px/1.58 Roboto, system-ui, -apple-system, Segoe UI,
+                    Ubuntu, Helvetica, Arial;
+                color: var(--text);
+                background: linear-gradient(
+                    180deg,
+                    #0b0b0c,
+                    #0c0d12 40%,
+                    #0b0f18
+                );
+            }
+            h1,
+            h2,
+            h3 {
+                line-height: 1.2;
+                margin: 0 0 0.6rem 0;
+            }
+            h1 {
+                font-size: 28px;
+            }
+            h2 {
+                font-size: 22px;
+            }
+            h3 {
+                font-size: 18px;
+            }
+            a {
+                color: #93c5fd;
+                text-decoration: none;
+            }
+            .container {
+                max-width: 1040px;
+                margin: 0 auto;
+                padding: 24px;
+            }
+            .header {
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                padding: 16px 24px;
+                border-bottom: 1px solid var(--border);
+                background: rgba(20, 24, 33, 0.75);
+                backdrop-filter: blur(6px);
+                position: sticky;
+                top: 0;
+                z-index: 50;
+            }
+            .logo {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                font-weight: 700;
+            }
+            .logo-dot {
+                width: 12px;
+                height: 12px;
+                border-radius: 999px;
+                background: conic-gradient(
+                    from 180deg at 50% 50%,
+                    #0f766e,
+                    #4f46e5,
+                    #0f766e
+                );
+            }
+            .header-actions {
+                margin-left: auto;
+                display: flex;
+                gap: 10px;
+            }
+            .btn {
+                appearance: none;
+                border: none;
+                cursor: pointer;
+                padding: 10px 14px;
+                border-radius: 12px;
+                font-weight: 600;
+            }
+            .btn-primary {
+                background: var(--primary);
+                color: var(--primary-fore);
+            }
+            .btn-primary:hover {
+                filter: brightness(0.95);
+            }
+            .btn-ghost {
+                background: transparent;
+                color: var(--text);
+                border: 1px solid var(--border);
+            }
+            .btn-ghost:hover {
+                background: rgba(255, 255, 255, 0.04);
+            }
+
+            .section {
+                padding: 24px;
+                margin: 18px 0;
+                background: rgba(15, 18, 28, 0.5);
+                border: 1px solid var(--border);
+                border-radius: var(--radius);
+            }
+            .card {
+                background: linear-gradient(
+                    180deg,
+                    rgba(29, 34, 46, 0.75),
+                    rgba(18, 20, 28, 0.75)
+                );
+                border: 1px solid var(--border);
+                border-radius: var(--radius);
+                padding: 18px;
+                box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05),
+                    0 16px 28px -18px rgba(0, 0, 0, 0.35);
+            }
+            .grid {
+                display: grid;
+                grid-template-columns: 1.25fr 0.75fr;
+                gap: 18px;
+            }
+            .badge {
+                font-size: 12px;
+                padding: 4px 8px;
+                border-radius: 999px;
+                border: 1px solid #334155;
+                background: #0b1220;
+                color: #cbd5e1;
+            }
+            .muted {
+                color: var(--muted);
+            }
+            .sep {
+                height: 1px;
+                background: var(--border);
+                margin: 14px 0;
+            }
+
+            /* bullets chevron */
+            .bullets,
+            .prose ul,
+            .checklist,
+            ul.small {
+                list-style: none;
+                padding-left: 0;
+            }
+            .bullets li,
+            .prose ul li,
+            .checklist li,
+            .small ul li {
+                position: relative;
+                padding-left: 14px;
+                margin: 0.35rem 0;
+            }
+            .bullets li::before,
+            .prose ul li::before,
+            .checklist li::before,
+            .small ul li::before {
+                content: '›';
+                position: absolute;
+                left: -12px;
+                top: 0.2rem;
+                color: var(--chev);
+                font-weight: 700;
+                font-size: 14px;
+            }
+
+            /* tabs simples */
+            .tabs {
+                display: flex;
+                gap: 8px;
+                margin: 12px 0;
+            }
+            .tab {
+                padding: 8px 12px;
+                border-radius: 10px;
+                border: 1px solid var(--border);
+                background: #111522;
+            }
+
+            .col {
+                display: flex;
+                flex-direction: column;
+                gap: 14px;
+            }
+            .callout {
+                border: 1px solid #1f3440;
+                background: #0c1820;
+                padding: 12px;
+                border-radius: 12px;
+            }
+            .small {
+                font-size: 13px;
+            }
+        </style>
+    </head>
+    <body>
+        <header class="header">
+            <div class="logo"><span class="logo-dot"></span> Roadmap BR</div>
+            <nav class="small muted">Trilha Fullstack</nav>
+            <div class="header-actions">
+                <button class="btn btn-ghost">Theme</button>
+                <button class="btn btn-primary">Entrar com GitHub</button>
+            </div>
+        </header>
+
+        <main class="container">
+            <section class="section">
+                <div
+                    style="
+                        display: flex;
+                        align-items: center;
+                        gap: 12px;
+                        margin-bottom: 8px;
+                    "
+                >
+                    <span class="badge">Bloco 01</span>
+                    <h1>Git + IA (modo tutor)</h1>
+                    <span class="badge">~40h</span>
+                </div>
+                <p class="muted small">
+                    Foco em brasileiros sem inglês forte. Primeiro, você aprende
+                    a estudar com IA (modo Estudo do ChatGPT) e depois aplica
+                    Git com boas práticas e um projeto reprodutível.
+                </p>
+                <div class="tabs">
+                    <div class="tab">1) IA (modo estudo)</div>
+                    <div class="tab">2) Git (fundamentos)</div>
+                    <div class="tab">3) Projeto / Entregável</div>
+                </div>
+
+                <div class="grid">
+                    <div class="col">
+                        <!-- ===== 1) IA (modo estudo) ===== -->
+                        <article class="card">
+                            <h2>1) IA (modo Estudo) — como aprender melhor</h2>
+                            <div class="sep"></div>
+                            <h3>Overview</h3>
+                            <p class="muted">
+                                Ative o modo
+                                <strong>Estudar e aprender</strong> do ChatGPT.
+                                A proposta é um tutor que pergunta antes de
+                                responder, valida raciocínio e sugere exercícios
+                                graduais. Aqui você configura seus
+                                <em>prompts-base</em> para usar durante todo o
+                                curso.
+                            </p>
+                            <div class="sep"></div>
+                            <h3>Vídeos (PT-BR)</h3>
+                            <ul class="bullets small">
+                                <li>
+                                    <a href="#" target="_blank"
+                                        >Testando o Modo Estudo do ChatGPT
+                                        (demonstração)</a
+                                    >
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank"
+                                        >Como usar ChatGPT para estudar
+                                        programação (exemplos práticos)</a
+                                    >
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank"
+                                        >8 formas de estudar com ChatGPT
+                                        (resumos, quiz, mapas mentais)</a
+                                    >
+                                </li>
+                            </ul>
+                            <h3>Artigos (PT/pt‑BR)</h3>
+                            <ul class="bullets small">
+                                <li>
+                                    <a href="#" target="_blank"
+                                        >OpenAI (pt‑BR): Apresentamos o modo
+                                        Estudo</a
+                                    >
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank"
+                                        >DIO: Guia de Engenharia de Prompts</a
+                                    >
+                                </li>
+                            </ul>
+                            <h3>Cheat sheet — prompts úteis</h3>
+                            <ul class="small">
+                                <li>
+                                    <strong>Diagnóstico</strong>: “Pergunte meu
+                                    nível sobre Git; 5 questões; explique meus
+                                    erros e recomende 1 exercício.”
+                                </li>
+                                <li>
+                                    <strong>Socrático</strong>: “Não entregue a
+                                    resposta. Faça perguntas curtas e confirme
+                                    meu raciocínio a cada passo.”
+                                </li>
+                                <li>
+                                    <strong>Revisão de commit/PR</strong>:
+                                    “Avalie a clareza e escopo segundo
+                                    Conventional Commits; sugira melhor
+                                    mensagem.”
+                                </li>
+                                <li>
+                                    <strong>Comparativo</strong>: “Explique
+                                    <code>reset --soft</code> ×
+                                    <code>--mixed</code> ×
+                                    <code>--hard</code> com exemplos.”
+                                </li>
+                                <li>
+                                    <strong>Flashcards</strong>: “Crie 10
+                                    flashcards em PT‑BR sobre Git; aplique um
+                                    quiz aleatório.”
+                                </li>
+                                <li>
+                                    <strong>Registro</strong>: “Resuma em 5
+                                    bullets o que aprendi hoje + 1 próximo passo
+                                    prático.”
+                                </li>
+                            </ul>
+                            <div class="callout small">
+                                Dica: salve esses prompts em
+                                <code>docs/prompts-ia.md</code> no seu
+                                repositório.
+                            </div>
+                        </article>
+
+                        <!-- ===== 2) Git (fundamentos) ===== -->
+                        <article class="card">
+                            <h2>
+                                2) Git (fundamentos) — do zero à colaboração
+                            </h2>
+                            <div class="sep"></div>
+                            <h3>Overview</h3>
+                            <p class="muted">
+                                Você sai do zero, entende conceitos
+                                (repositório, staging, commit, branch, remoto,
+                                PR) e pratica o fluxo
+                                <code
+                                    >status → add → commit → pull --rebase →
+                                    push</code
+                                >. Adota mensagens padronizadas e PR curto.
+                            </p>
+                            <div class="sep"></div>
+                            <h3>Vídeos (sequência sugerida)</h3>
+                            <ul class="bullets small">
+                                <li>
+                                    <a href="#" target="_blank"
+                                        >Rafaella Ballerini — Parte 1: conceitos
+                                        (iniciante)</a
+                                    >
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank"
+                                        >Rafaella Ballerini — Parte 2: prática
+                                        (init, add, commit, PR)</a
+                                    >
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank"
+                                        >Minicurso Git em ~45 min (revisão
+                                        prática)</a
+                                    >
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank"
+                                        >Vídeo único (guia completo) — revisão
+                                        final</a
+                                    >
+                                </li>
+                            </ul>
+                            <h3>Leitura</h3>
+                            <ul class="bullets small">
+                                <li>
+                                    <a href="#" target="_blank"
+                                        >Conventional Commits (pt‑BR)</a
+                                    >
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank"
+                                        >Mensagens de commit: guia em
+                                        português</a
+                                    >
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank"
+                                        >Pro Git (pt‑BR) — capítulo básico</a
+                                    >
+                                </li>
+                            </ul>
+                            <h3>Cheat sheet</h3>
+                            <ul class="bullets small">
+                                <li>
+                                    <a href="#" target="_blank"
+                                        >GitHub — Folha de Dicas (pt‑BR, PDF)</a
+                                    >
+                                </li>
+                            </ul>
+                            <h3>Exercícios</h3>
+                            <ul class="small">
+                                <li>
+                                    Configurar global (<code>user.name</code>,
+                                    <code>user.email</code>,
+                                    <code>init.defaultBranch=main</code>)
+                                </li>
+                                <li>
+                                    Repo local → primeiro commit → push no
+                                    GitHub
+                                </li>
+                                <li>
+                                    Criar <code>feat/onboarding</code>, editar
+                                    README e abrir 1 PR
+                                </li>
+                                <li>
+                                    Simular conflito simples e resolvê‑lo; usar
+                                    <code>git log --oneline --graph</code>
+                                </li>
+                                <li>
+                                    Reescrever 3 mensagens usando Conventional
+                                    Commits
+                                </li>
+                            </ul>
+                        </article>
+
+                        <!-- ===== 3) Projeto / Entregável ===== -->
+                        <article class="card">
+                            <h2>3) Projeto / Entregável — repo do bloco</h2>
+                            <div class="sep"></div>
+                            <h3>Estrutura sugerida do repositório</h3>
+                            <pre
+                                class="small"
+                                style="
+                                    overflow: auto;
+                                    background: #0b1220;
+                                    border: 1px solid #263342;
+                                    border-radius: 12px;
+                                    padding: 12px;
+                                "
+                            >
+bloco-01-git/
+├─ README.md                  # objetivos, como rodar, convenção de commits
+├─ LICENSE
+├─ CHANGELOG.md
+├─ docs/
+│  ├─ diario-erros.md         # o que quebrei / como resolvi (semanal)
+│  └─ prompts-ia.md           # prompts úteis de estudo e revisão
+└─ .github/
+   ├─ PULL_REQUEST_TEMPLATE.md
+   └─ ISSUE_TEMPLATE.md
+</pre
+                            >
+                            <h3>Checklist de entrega</h3>
+                            <ul class="checklist small">
+                                <li>[ ] Git configurado e primeiro push</li>
+                                <li>[ ] Branch strategy descrita no README</li>
+                                <li>
+                                    [ ] Templates .github/ ativos (PR/Issue)
+                                </li>
+                                <li>
+                                    [ ] 1 PR revisado (humano + IA) e mergeado
+                                </li>
+                                <li>[ ] CHANGELOG iniciado</li>
+                                <li>[ ] Diário de erros criado e preenchido</li>
+                                <li>[ ] Prompts de IA salvos e testados</li>
+                            </ul>
+                        </article>
+                    </div>
+
+                    <!-- ===== Sidebar ===== -->
+                    <aside class="card">
+                        <h3>Resumo rápido</h3>
+                        <p class="muted small">
+                            IA primeiro (modo Estudo) → depois Git. Use a IA
+                            para diagnóstico, revisão e revisão espaçada. O
+                            entregável é um repo padronizado com 1 PR real.
+                        </p>
+                        <div class="sep"></div>
+                        <h3>Tempo sugerido (~40h)</h3>
+                        <ul class="bullets small">
+                            <li>IA (modo estudo): 8–10h</li>
+                            <li>Git fundamentos: 18–20h</li>
+                            <li>Projeto/PR + documentação: 10–12h</li>
+                        </ul>
+                        <div class="sep"></div>
+                        <h3>Referências (adicionar links)</h3>
+                        <ul class="small">
+                            <li>
+                                Vídeos IA (PT‑BR): Modo Estudo; estudar com
+                                ChatGPT
+                            </li>
+                            <li>Artigos IA: OpenAI pt‑BR; DIO prompts</li>
+                            <li>
+                                Vídeos Git (PT‑BR): Rafa 1/2 e 2/2; Minicurso
+                                45min; Guia completo
+                            </li>
+                            <li>
+                                Leitura Git: Conventional Commits; Mensagens de
+                                commit (pt‑BR); Pro Git
+                            </li>
+                            <li>Cheat sheet: GitHub (pt‑BR)</li>
+                        </ul>
+                    </aside>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>
