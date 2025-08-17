@@ -54,7 +54,7 @@ export const roadmapData: RoadmapNode[] = [
         id: '01',
         number: '01',
         title: 'Git + IA (modo tutor)',
-        status: 'todo',
+        status: 'in-progress',
         duration: '~40h',
         summary: [
             'IA primeiro (modo Estudo) para diagnóstico e estudo ativo',
@@ -246,7 +246,7 @@ export const roadmapData: RoadmapNode[] = [
         id: '02',
         number: '02',
         title: 'Python (base + testes)',
-        status: 'in-progress',
+        status: 'todo',
         duration: '~40h',
         summary: [
             'Coleções, exceções, módulos',
